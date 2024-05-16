@@ -293,8 +293,8 @@
        
           <div class="privacy-policy">
             By signing up you agree to our
-            <a href="terms.html" class="signup-link">Terms of Service</a>
-            <a href="privacy-policy.html" class="signup-link">Privacy Policy</a>
+            <a href="../terms.html" class="signup-link">Terms of Service</a>
+            <a href="../privacy-policy.html" class="signup-link">Privacy Policy</a>
           </div>
         </div>
       </div>
@@ -311,11 +311,13 @@
 
           document.getElementById('pdf-input').addEventListener('change', function(e) {
             console.log('PDF file selected:', e.target.files[0]);
+            alert('Successfully uploaded');
             // Handle the uploaded PDF file
           });
 
           document.getElementById('word-input').addEventListener('change', function(e) {
             console.log('Word document selected:', e.target.files[0]);
+            alert('Successfully uploaded');
             // Handle the uploaded Word document
           });
         });
