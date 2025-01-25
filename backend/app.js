@@ -134,16 +134,18 @@ app.get("/signup", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+  // var data = await User.find({});
+  // console.log(data);
   try {
     const user = await User.find({
       username: req.body.username,
       password: req.body.password,
     });
-    if (user) {
+    if (user.length>0) {  //if([])   true
       req.session.username = req.body.username;
       res.redirect("/home");
     } else {
-      res.send("invalid");
+      res.send("Invalid Username Or Password");
     }
   } catch (err) {
     console.error(err);
@@ -159,6 +161,8 @@ app.get("/home", (req, res) => {
 app.post("/signup", async (req, res) => {
   try {
     await User.create(req.body);
+    var data = await User.find({});
+     console.log(data);
     res.render("home.ejs", req.body);
   } catch (err) {
     console.error(err);
